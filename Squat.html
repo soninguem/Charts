@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script>
+    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pym/0.4.1/pym.min.js"></script>
+  <style></style>
+</head>
+
+<body>
+  <div id='myChart'></div>
+  <script>
+    var ConfigChart = {
+      "type": "hscatter",
+
+      // legend
+      "legend":{
+        "position": "50% 5%",
+        "adjust-layout":true,
+        "layout":"float",
+        "align":"center",
+        "vertical-align":"top",
+        "border-width":0,
+        //"border-color":"#555",
+        //"border-radius":5,
+          "item":{
+          "font-color":"black",
+          "font-size":"10%",
+          "font-family":"arial",
+          "align":"center",
+        },
+         "marker":{
+             "type":"match",
+             "alpha":1,
+             "visible":false,
+             "align":"center"
+           },
+
+      }, // legend end
+      "plot": {
+        "tooltip":{
+          "text":"For body weight %ktkg<br>Expected max lift for %t is %vkg",
+          "fontColor": "black",
+          "background-color": "white",
+    			"border-width": 1,
+    			"border-color": "black",
+    			"border-radius":"5px",
+    			"padding-right": "5%",
+    			"callout": true
+        },
+        "animation":{
+            "effect":"ANIMATION_SLIDE_LEFT",
+            "speed":"120",
+            "method":"2",
+            "sequence":"3",
+            "attributes":{
+            }
+          }
+        },
+      "plotarea":{
+        "margin-left":"dynamic",
+        "margin-bottom":"dynamic",
+        "margin-top":"dynamic"
+      },
+      "crosshair-x":{
+          "plot-label":{
+              "visible":false,
+          },
+          "marker":{
+          "visible": false,
+        },
+          "trigger":"hover",
+        },
+      "crosshair-y": {
+      },
+      "scale-x": {
+        "values": ["44","48","52","56","60","67","75","82","90","100","110","125","145"],
+        "label":{
+          "text":"Body weight (Kg)",
+          "font-size":"12%",
+          "font-family":"arial",
+          "font-color":"black",
+          "width":"40%"
+        },
+      }, // scale x end
+      "scale-y":{
+        "values":"30:205:10",
+        "label":{
+          "text":"Squat 1 rep max (Kg)",
+          "font-size":"12%",
+          "font-family":"arial",
+          "font-color":"black",
+          "width":"20%"
+        },
+      },
+      // male - novice
+      "series": [{
+        "values": [
+          [0,null],
+          [1,null],
+          [2,65],
+          [3,70],
+          [4,77.5],
+          [5,85],
+          [6,92.5],
+          [7,100],
+          [8,105],
+          [9,110],
+          [10,115],
+          [11,117.5],
+          [12,122.5],
+        ],
+        "visible":true,
+        "text": "M: Novice",
+        /*"guide-label":{
+          "text":"%t are like pearls.",
+        },*/
+        "marker": {
+          "background-image": "img/mstarn.png",
+          "background-color": "none",
+          "border-color": "none",
+          "background-repeat": "no-repeat",
+          "shadow": false,
+          "size": 12
+        }
+      },
+      // male - Intermediate
+      {
+        "values": [
+          [0,null],
+          [1,null],
+          [2,80],
+          [3,87.5],
+          [4,92.5],
+          [5,105],
+          [6,112.5],
+          [7,122.5],
+          [8,130],
+          [9,135],
+          [10,140],
+          [11,145],
+          [12,147.5],
+        ],
+        "visible":true,
+        "text": "M: Intermediate",
+        "marker": {
+          "background-image": "img/mstari.png",
+          "background-color": "none",
+          "border-color": "none",
+          "background-repeat": "no-repeat",
+          "shadow": false,
+          "size": 12
+        }
+      },
+      // male - Advanced
+      {
+        "values": [
+          [0,null],
+          [1,null],
+          [2,107.5],
+          [3,117.5],
+          [4,127.5],
+          [5,142.5],
+          [6,155],
+          [7,167.5],
+          [8,177.5],
+          [9,185],
+          [10,192.5],
+          [11,197.5],
+          [12,202.5],
+        ],
+        "visible":false,
+        "text": "M: Advanced",
+        "marker": {
+          "background-image": "img/mstara.png",
+          "background-color": "none",
+          "border-color": "none",
+          "background-repeat": "no-repeat",
+          "shadow": false,
+          "size": 12
+        }
+      },
+
+      // female - Novice
+      {
+        "values": [
+          [0,37.5],
+          [1,40],
+          [2,45],
+          [3,47.5],
+          [4,50],
+          [5,55],
+          [6,57.5],
+          [7,62.5],
+          [8,67.5],
+          [9,null],
+          [10,null],
+          [11,null],
+          [12,null],
+        ],
+        "visible":true,
+        "text": "F: Novice",
+        "marker": {
+          "background-image": "img/fstarn.png",
+          "background-color": "none",
+          "border-color": "none",
+          "background-repeat": "no-repeat",
+          "shadow": false,
+          "size": 12,
+        }
+      },
+
+      // female - Intermediate
+      {
+        "values": [
+          [0,45],
+          [1,47.5],
+          [2,52.5],
+          [3,55],
+          [4,60],
+          [5,62.5],
+          [6,67.5],
+          [7,75],
+          [8,80],
+          [9,null],
+          [10,null],
+          [11,null],
+          [12,null],
+        ],
+        "visible":true,
+        "text": "F: Intermediate",
+        "marker": {
+          "background-image": "img/fstari.png",
+          "background-color": "none",
+          "border-color": "none",
+          "background-repeat": "no-repeat",
+          "shadow": false,
+          "size": 12
+        }
+      },
+
+      // female - Advanced
+      {
+        "values": [
+          [0,60],
+          [1,65],
+          [2,67.5],
+          [3,72.5],
+          [4,77.5],
+          [5,85],
+          [6,90],
+          [7,97.5],
+          [8,105],
+          [9,null],
+          [10,null],
+          [11,null],
+          [12,null],
+        ],
+        "visible":false,
+        "text": "F: Advanced",
+        "marker": {
+          "background-image": "img/fstara.png",
+          "background-color": "none",
+          "border-color": "none",
+          "background-repeat": "no-repeat",
+          "shadow": false,
+          "size": 12
+        }
+      },
+    ] //series end
+
+    };
+    zingchart.render({
+      id: 'myChart',
+      data: ConfigChart,
+      height: 450,
+      width: "100%"
+    });
+
+  var pymChild = new pym.Child();
+  </script>
+</body>
+
+</html>
